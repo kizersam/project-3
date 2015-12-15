@@ -29,7 +29,13 @@ class StudentController < ApplicationController
   	@student = current_student
 	jobs = Job.where(location: @student.location)
 	@companies = get_companies_by_location jobs
+	@apps = Application.new
+  end
 
+  def apps
+  	genapps = Application.where(student_id: current_student.id)
+	@apps = createapplications genapps
+  	render "apps"
   end
 
 end
