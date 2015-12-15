@@ -1,0 +1,98 @@
+
+	
+
+<div class="nav-side-menu">
+    <div class="brand">Search Options</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  
+        <div class="menu-list">
+  
+            <ul id="menu-content" class="menu-content collapse out">
+
+                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                  <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li class="active"><a href="#">CSS3 Animation</a></li>
+                    <li><a href="#">General</a></li>
+                    <li><a href="#">Buttons</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                  <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+                </li>  
+                <ul class="sub-menu collapse" id="service">
+                  <li>New Service 1</li>
+                  <li>New Service 2</li>
+                  <li>New Service 3</li>
+                </ul>
+				
+                 <li>
+                  <a href="#">
+                  <i class="fa fa-user fa-lg"></i> Profile
+                  </a>
+                  </li>
+
+                 <li>
+                  <a href="#">
+                  <i class="fa fa-users fa-lg"></i> Users
+                  </a>
+                </li>
+            </ul>
+     </div>
+
+</div>
+
+
+<div class="jobstuff">
+	<h1 class="sjtitle"> Jobs in <%= current_student.location %> </h1>
+
+	<div>
+		<ul class="media-list main-list">
+			<% @companies.each do |company| %>
+					<li class="media" id="eachcompany">
+					    <a class="pull-left" href="#">
+					    	<%= image_tag company["avatar"] %>
+					    </a>
+					    <div class="media-body">
+					      <h3 class="media-heading"><%= company["name"] %> </h3>
+						  <h5 class="media-heading"> <%= company["brief"] %> </h5>
+					        <div class="tab-content faq-cat-content">
+					      		<div class="tab-pane active in fade" id="faq-cat-1">
+				               		<div class="panel-group" id="accordion-cat-1">
+				               			<div class="panel panel-default panel-faq">
+				               
+					                       <% company["jobs"].each do |job| %>
+					        
+				                            <div class="panel-heading">
+				                                <a data-toggle="collapse" data-parent="#accordion-cat-1" href="#faq-cat-1-sub-<%= job.id %>">
+				                                    <h4 class="panel-title">
+				                                        Position:<b> <%= job.role %></b>
+				                                        <span class="pull-right"><i class="glyphicon glyphicon-plus"></i></span>
+				                                    </h4>
+				                                </a>
+				                            </div>
+				                            <div id="faq-cat-1-sub-<%= job.id %>" class="panel-collapse collapse">
+				                                <div class="panel-body">
+				                                   Description:<b> <%= job.description %></b><br>
+				                                   Compensation:<b> <%= job.compensation %></b>
+				                                </div>
+				                            </div>
+									   
+								            <% end %>
+						              	</div>
+			                  		</div>
+			                	</div> 
+			                </div> 
+					    </div>
+					</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+

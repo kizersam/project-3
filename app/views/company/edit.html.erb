@@ -1,23 +1,50 @@
+<div class="panel panel-default editform">
+  
 
+<h2 class="title">Here You Can Update Your Public Profile Here</h2>
 
-<h2>Here You Can Update Your Public Profile Here</h2>
+  <div class="panel-body">
+    <%= form_for @company do |f| %>
 
-<%= form_for @company do |f| %>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
 
-<div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+       <div class="field">
+         <%= f.label :brief_description_of_your_company %> <br />
+         <%= f.text_field :brief %>
+      </div>
+
+      <div class="field">
+         <%= f.label :description_of_your_product %> <br />
+         <%= f.text_field :product %>
+      </div>
+
+      <div class="field">
+        <%= f.label :full_description %> <br />
+        <%= f.text_area :description %>
+      </div>
+
+      <div class="field">
+        <%= f.label :funding %> <br />
+        <%= f.text_area :funding %>
+      </div>
+
+      <div class="field">
+        <%= f.label :link_to_your_company_website %> <br />
+        <%= f.text_area :website %>
+      </div>
+
+      <div class="field">
+         <%= f.label :logo %> <br />
+         <%= f.file_field :avatar %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :description %> <br />
-    <%= f.text_area :description %>
-  </div>
-
-
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-  <% end %>
+</div>
 

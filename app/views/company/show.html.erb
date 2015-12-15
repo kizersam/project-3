@@ -1,3 +1,5 @@
-<h1> You are in Company Show </h1>
+<h1 class="title"> You are in Company Show </h1>
+<%= image_tag @company.avatar.url(:medium) %>
 
 <li><%= link_to "Edit", edit_company_path%></li>
+<li><a href="/company/<%= @company.id %>/jobs/new">Create Job Post</a></li>

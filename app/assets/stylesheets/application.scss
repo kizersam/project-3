@@ -14,4 +14,32 @@
 
  @import "bootstrap-sprockets";
 @import "bootstrap";
- 
+@import "student";
+@import "jobs";
+.title{
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
+}
+.editform {
+	background-color: transparent;
+}
+#mainnav {
+	margin-top: -30px;
+	margin-bottom: 0px;
+	background-color: #23282e;
+	color: #e1ffff;
+	font-family: "Courier New", Courier, monospace;
+
+}
+body {
+	background-image: url("https://images.unsplash.com/photo-1436262513933-a0b06755c784?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=9317f57064f503971c942f2a1bf13944");
+	
+	background-size: auto 150%;
+	
+}
+
+.jumbotron {
+	height: 250px;
+	font-family: "Courier New", Courier, monospace;
+	background-image: url("https://images.unsplash.com/photo-1436262513933-a0b06755c784?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=9317f57064f503971c942f2a1bf13944");
+}

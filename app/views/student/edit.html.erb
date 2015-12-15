@@ -1,6 +1,6 @@
 
 
-<h2>Here You Can Update Your Public Profile <%= current_student.first_name %></h2>
+<h2 class="title">Here You Can Update Your Public Profile</h2>
 
 <%= form_for @student do |f| %>
 
@@ -26,7 +26,7 @@
 
   <div class="field">
     <%= f.label :location %> <br />
-    <%= f.text_field :location %>
+    <%= f.select :location, ["San Francisco", "Boston", "New York", "Miami"], class: "form-control input-lg"  %>
   </div>
 
   <div class="field">

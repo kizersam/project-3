@@ -1,4 +1,6 @@
 <h1>Hello</h1>
 
+<% unless (student_signed_in? || company_signed_in?) %>
 <li><a href="/students/sign_up">Student Sign Up </a></li>
 <li><a href="/companies/sign_up">Company Sign Up</a></li>
+<% end %>

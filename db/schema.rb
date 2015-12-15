@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212015040) do
+ActiveRecord::Schema.define(version: 20151215001322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20151212015040) do
     t.string   "description"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "product"
+    t.string   "funding"
+    t.string   "brief"
+    t.text     "whyus"
+    t.string   "website"
+    t.string   "employees"
   end
 
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree

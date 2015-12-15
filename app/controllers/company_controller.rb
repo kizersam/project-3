@@ -1,6 +1,7 @@
 class CompanyController < ApplicationController
 	before_action :authenticate_company!
 	def show
+		@company = Company.find(current_company.id)
 		render "show"
 	end
 
@@ -18,7 +19,7 @@ class CompanyController < ApplicationController
     id = params[:id]
     company = Company.find(id)
 
-    updated_attributes = params.require(:company).permit(:name, :description)
+    updated_attributes = params.require(:company).permit(:name, :description, :avatar, :brief, :product, :website, :funding, )
     company.update_attributes(updated_attributes)
     redirect_to company
   end
