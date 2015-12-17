@@ -1,0 +1,56 @@
+<h1> You are in company Apps </h1>
+
+<% @jobapps.each do |job| %>
+
+	<div class="panel panel-default col-lg-8 col-lg-offset-2" >
+	  <!-- Default panel contents -->
+	  <div class="panel-body">
+	  	<p> <b>Position:</b> <%= job["role"] %> </p>
+		<p> <b>Location:</b> <%= job["location"] %> </p>
+	  </div>
+	    <div class="tab-content faq-cat-content">
+	  		<div class="tab-pane active in fade" id="faq-cat-1">
+	       		<div class="panel-group" id="accordion-cat-1">
+	       			<div class="panel panel-default panel-faq">
+	       
+	                   <% job["apps"].each do |app| %>
+	    					<% @student = Student.find(app.student_id) %>
+	                    <div class="panel-heading">
+	                        <a data-toggle="collapse" data-parent="#accordion-cat-1" href="#faq-cat-1-sub-<%= app.id %>">
+	                            <h4 class="panel-title">
+	                                ID: <b><%= app.id %> <%= @student.first_name%> <%=@student.last_name %> <%=@student.college %> <%=@student.major %></b>
+	                                <span class="pull-right"><i class="glyphicon glyphicon-plus"></i></span>
+	                            </h4>
+	                        </a>
+	                    </div>
+	                    <div id="faq-cat-1-sub-<%= app.id %>" class="panel-collapse collapse">
+	                        <div class="panel-body">
+	                           <b>Body:</b> <%= app.body %><br>
+	                           <a href="<%= @student.linkedin %>"><b>LinkedIn:</b></a><br>
+	                           <b>Email: </b><%= @student.email %>
+
+	                           <%= form_for [@company, app], url: {controller: "apps", action: "update"} do |f| %>
+					                <div>
+										<div>
+											<%= f.select :status, ["Approved", "Denied"], class: "form-control input-lg"  %>
+										</div>
+										<div>
+											<%= hidden_field_tag :appid, app.id  %>
+										</div>
+									</div>
+	            				<%= f.submit "Submit", class: "btn" %>
+								<% end %>
+	                        </div>
+	                    </div>
+					  <% end %>
+	              	</div>
+	      		</div>
+	    	</div> 
+        </div> 
+	</div>
+
+<% end %>
+
+
+
+

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  devise_for :companies, controllers: {company: "company" }
-  devise_for :students, controllers: { student: "student" }
+  devise_for :companies, controllers: {company: "company", registrations: "companies/registrations"}
+  devise_for :students, controllers: { student: "student", registrations: "students/registrations"}
   
   root 'welcome#index'
 
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
    resources :company do
     resources :jobs
-    
+    get "company/applications", to: "company#apps", as: "applications"
+    get "/applications/edit", to: "apps#edit"
+    patch "company/applications", to: "apps#update"
   end
 end

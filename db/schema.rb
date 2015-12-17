@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151215190725) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "name"
+    t.string   "name",                                null: false
     t.string   "description"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -68,12 +68,12 @@ ActiveRecord::Schema.define(version: 20151215190725) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string   "email",                  default: "",            null: false
-    t.string   "encrypted_password",     default: "",            null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,             null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -84,10 +84,10 @@ ActiveRecord::Schema.define(version: 20151215190725) do
     t.string   "college"
     t.string   "major"
     t.string   "location"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "first_name",             default: "New Student"
-    t.string   "last_name"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
