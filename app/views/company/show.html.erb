@@ -5,7 +5,24 @@
 	
 	<div id="avatar"> <%= image_tag @company.avatar.url(:medium) %> </div>
 
-	<li><%= link_to "Edit", edit_company_path%></li>
-	<li><a href="/company/<%= @company.id %>/jobs/new">Create Job Post</a></li>
+	
+	<div>
+		<a href="/company/<%= @company.id %>/jobs/new">
+		  <div class="button-fill grey">
+		    <div class="button-text">Post A Job</div>
+		    <div class="button-inside">
+		      <div class="inside-text">Post A Job</div>
+		    </div>
+		  </div>
+		 </a>
+		<a href="/company/<%= @company.id %>/jobs">
+		  <div class="button-fill orange">
+		    <div class="button-text">Current Jobs</div>
+		    <div class="button-inside">
+		      <div class="inside-text">Current Jobs</div>
+		    </div>
+		  </div>
+		</a>
+	</div>
 
 </div>

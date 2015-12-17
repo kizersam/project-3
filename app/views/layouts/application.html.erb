@@ -56,7 +56,8 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_company.name %></span></a>
                 <ul data-no-turbolink class="dropdown-menu" role="menu">
-                  
+                  <li class="divider"></li>
+                  <li><%= link_to " Edit Your Profile", edit_company_path(current_company)%></li>
                   <li class="divider"></li>
                   <li><%= link_to " Account Settings", edit_company_registration_path(current_company)%></li>
                   <li class="divider"></li>

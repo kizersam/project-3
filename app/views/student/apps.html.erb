@@ -4,10 +4,10 @@
 <% @apps.reverse_each do |n|%>
 	 
 
-	<div class="panel panel-default col-lg-8 col-lg-offset-2" >
+	<div class="panel panel-default eachapp" >
 	  <!-- Default panel contents -->
-	  <a class="pull-left" href="#"><%= image_tag n["avatar"] %></a>
-	  <div class="panel-body"><p> <b>Position:</b> <%= n["role"] %> </p>
+	  <a class="pull-left logo" ><%= image_tag n["avatar"], id:"appimg" %></a>
+	  <div class="panel-body appheader"><p> <b>Position:</b> <%= n["role"] %> </p>
 	  <p> <b>Company:</b> <%= n["company"] %> </p></div>
 
 	  <!-- List group -->

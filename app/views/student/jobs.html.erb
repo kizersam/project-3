@@ -5,13 +5,13 @@
 
 
 <div class="jobstuff">
-	<h1 class="sjtitle"> Jobs in <%= current_student.location %> </h1>
+	<h1 class="title"> Jobs in <%= current_student.location %> </h1>
 
 	<div>
 		<ul class="media-list main-list">
 			<% @companies.each do |company| %>
 					<li class="media" id="eachcompany">
-					    <a class="pull-left" href="#">
+					    <a class="pull-left logo" >
 					    	<%= image_tag company["avatar"] %>
 					    </a>
 					    <div class="media-body">
@@ -36,7 +36,7 @@
 				                                <div class="panel-body">
 				                                   Description:<b> <%= job.description %></b><br>
 				                                   Compensation:<b> <%= job.compensation %></b>
-				                                   <button data-no-turbolink data-toggle= 'modal' data-target="#<%= job.id %>mo" type="button" class="btn btn-primary navbar-btn">Apply</button>
+				                                   <button data-no-turbolink data-toggle= 'modal' data-target="#<%= job.id %>mo" type="button" class="btn btn-primary navbar-btn pull-right pull-bottom applybtn">Apply</button>
 				                                </div>
 				                            </div> 
 
