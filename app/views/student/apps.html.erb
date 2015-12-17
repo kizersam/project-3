@@ -1,0 +1,20 @@
+<h1 class="title"> Your Applications </h1>
+
+
+<% @apps.reverse_each do |n|%>
+	 
+
+	<div class="panel panel-default col-lg-8 col-lg-offset-2" >
+	  <!-- Default panel contents -->
+	  <a class="pull-left" href="#"><%= image_tag n["avatar"] %></a>
+	  <div class="panel-body"><p> <b>Position:</b> <%= n["role"] %> </p>
+	  <p> <b>Company:</b> <%= n["company"] %> </p></div>
+
+	  <!-- List group -->
+	  <ul class="list-group">
+	    <li class="list-group-item"><b>Location:</b> <%= n["location"] %></li>
+	    <li class="list-group-item"><b>Status:</b> <%= n["status"] %></li>
+	  </ul>
+	</div>
+
+	 <% end %>

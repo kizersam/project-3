@@ -9,74 +9,77 @@
 <body>
 
 <div class="jumbotron">
-  <div class="container">
+  <nav class="navbar navbar-default" id="mainnav">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-4">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+             <%= link_to "Home", root_path, class:"navbar-brand" %>
+        <% if student_signed_in?  %>
+          <ul class="nav navbar-nav">
+            <li> <%= link_to "Profile Page", student_path(current_student) %></li>
+            <li> <%= link_to "Search Job Postings", student_jobs_path(current_student) %></li>
+            <li> <%= link_to "Your Applications", student_student_applications_index_path(current_student) %></li>
+
+          </ul>
+          <% elsif company_signed_in? %>
+          <ul class="nav navbar-nav">
+            <li> <%= link_to "Profile Page", company_path(current_company) %></li> 
+            <li> <%= link_to "Your Job Postings", company_jobs_path(current_company) %></li> 
+            <li> <%= link_to "Applications Received", company_applications_path(current_company) %></li> 
+          </ul>
+        <% end %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse-4">
+
+        <ul class="nav navbar-nav navbar-right">
+        
+        <% if student_signed_in? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_student.first_name %> <%= current_student.last_name %></span></a>
+                <ul data-no-turbolink class="dropdown-menu" role="menu">
+                  
+                  <li class="divider"></li>
+                  <li><%= link_to " Account Settings", edit_student_registration_path(current_student)%></li>
+                  <li class="divider"></li>
+                  <li><%= link_to('Logout', destroy_student_session_path, :method => :delete)%></li>
+                </ul>
+              </li>
+        <% elsif company_signed_in? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_company.name %></span></a>
+                <ul data-no-turbolink class="dropdown-menu" role="menu">
+                  
+                  <li class="divider"></li>
+                  <li><%= link_to " Account Settings", edit_company_registration_path(current_company)%></li>
+                  <li class="divider"></li>
+                  <li><%= link_to('Logout', destroy_company_session_path, :method => :delete)%></li>
+                </ul>
+              </li>
+        <% else %>
+            <li><a href="/students/sign_in">Sign In as Student</a></li>
+            <li><a href="/companies/sign_in">Sign In as Company</a></li>
+        <% end %>    
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav>
+
+  <div class="container" id="maintitle">
     <h1>JumpStart</h1>
   </div>
+
 </div>
 
-  <nav class="navbar navbar-default">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-4">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-         <%= link_to "Home", root_path, class:"navbar-brand" %>
-      <% if student_signed_in?  %>
-      <ul class="nav navbar-nav">
-        <li> <%= link_to "Profile Page", student_path(current_student) %></li>
-      </ul>
-      <% elsif company_signed_in? %>
-      <ul class="nav navbar-nav">
-        <li> <%= link_to "Profile Page", company_path(current_company) %></li> 
-      </ul>
-      <% end %>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbar-collapse-4">
-
-	    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/about">About</a></li>
-	    <% if student_signed_in? %>
-	          <li class="dropdown">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_student.email %></span></a>
-	            <ul data-no-turbolink class="dropdown-menu" role="menu">
-	              
-	              <li class="divider"></li>
-	              <li><%= link_to " Account Settings", edit_student_registration_path(current_student)%></li>
-	              <li class="divider"></li>
-	              <li><%= link_to('Logout', destroy_student_session_path, :method => :delete)%></li>
-	            </ul>
-	          </li>
-      <% elsif company_signed_in? %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_company.email %></span></a>
-              <ul data-no-turbolink class="dropdown-menu" role="menu">
-                
-                <li class="divider"></li>
-                <li><%= link_to " Account Settings", edit_company_registration_path(current_company)%></li>
-                <li class="divider"></li>
-                <li><%= link_to('Logout', destroy_company_session_path, :method => :delete)%></li>
-              </ul>
-            </li>
-	    <% else %>
-		      <li><a href="/students/sign_in">Sign In as Student</a></li>
-          <li><a href="/companies/sign_in">Sign In as Company</a></li>
-		<% end %>
-            <ul data-no-turbolink class="dropdown-menu" role="menu">
-	          
-            </ul>
-        </ul>
-  </div><!-- /.navbar-collapse -->
-</div><!-- /.container -->
-</nav>
-
-<p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
 <%= yield %>
 
