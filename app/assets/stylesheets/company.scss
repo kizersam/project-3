@@ -5,11 +5,6 @@
 //SIGNUP AND LOGIN CSS IS IN STUDENT CSS FILE
 
 
-//EDITFORM
-.editform {
-	background-color: transparent;
-}
-
 
 //NEWJOBFORM
 select {
@@ -49,6 +44,10 @@ select {
 
 #avatar {
 	border-radius: 40px;
+	height: 200px;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
@@ -123,3 +122,21 @@ select {
 }
 
 //PROFILEPAGE END
+
+//APPS INDEX
+
+
+.glyphicon-plus {
+  visibility: hidden;
+}
+
+.panel-heading:hover .glyphicon-plus {
+  visibility: visible;
+}
+
+
+
+//APP END
+
+
+

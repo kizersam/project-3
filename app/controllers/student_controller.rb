@@ -2,7 +2,7 @@ class StudentController < ApplicationController
 	include StudentHelper
 	before_action :authenticate_student!
 	def show
-		# @student = Student.find(params[:id])
+		@student = current_student
 		render "show"
 	end
 
@@ -36,6 +36,13 @@ class StudentController < ApplicationController
   	genapps = Application.where(student_id: current_student.id)
 	@apps = createapplications genapps
   	render "apps"
+  end
+
+  def search
+  	city = params[:search]
+  	jobs = Job.where(location: city)
+  	results = get_companies_by_location jobs
+  	render :json => results
   end
 
 end

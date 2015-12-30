@@ -7,16 +7,17 @@ Rails.application.routes.draw do
 
 
    resources :student do
-   		get 'student/jobs', to: "student#jobs", as: "jobs"
-   		get "student/applications/new", to: "apps#new", as: "applications" 
-      post "student/applications", to: "apps#create"
-      get "student/applications/index", to: "student#apps"
+   		get '/jobs', to: "student#jobs", as: "jobs"
+   		get "/applications/new", to: "apps#new", as: "applications" 
+      post "/applications", to: "apps#create"
+      get "/applications/index", to: "student#apps"
+      get "/jobs/city/:search", to: "student#search", as:"search"
    end
 
    resources :company do
     resources :jobs
-    get "company/applications", to: "company#apps", as: "applications"
+    get "/applications", to: "company#apps", as: "applications"
     get "/applications/edit", to: "apps#edit"
-    patch "company/applications", to: "apps#update"
+    patch "/applications", to: "apps#update"
   end
 end

@@ -11,17 +11,12 @@
 }
 
 #eachcompany {
-  border-top: 4px solid;
-  border-bottom: 4px solid;
-  border-left: 4px solid;
-  border-right: 4px solid;
+ 
   width: 90%;
-  border-radius: 10px;
+  background-color: white;
   color: black;
 }
-#head {
-     border-bottom: 3px solid;
-}
+
 .panel-body {
   color: #23282e;
 }
@@ -38,16 +33,11 @@ img {
   height: 100%;
 }
 .logo {
-  border-bottom: 4px solid;
-  border-right: 4px solid;
   color: black;
   height: 105px;
   width: 105px;
 }
 
-.jobstuff {
-	margin-left: 25%;
-}
 
 .media-heading {
   margin-left: 10px;
@@ -84,7 +74,7 @@ img {
 //APPLICATIONS INDEX END
 
 
-// SIGNUP AND LOGIN START
+// SIGNUP AND LOGIN START AND EDIT
 
 #signup {
     
@@ -207,6 +197,11 @@ img {
         to(#b9c5dd));
 }
   
+.textforms {
+  width: 80%;
+  height: 100px;
+}
+
 
 //SIGNUP AND LOGIN END
 

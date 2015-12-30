@@ -1,50 +1,55 @@
-<div class="panel panel-default editform">
-  
+<div class="container col-xl-6 col-xl-offset-3 col-lg-6 col-lg-offset-3" id="signup">
 
-<h2 class="title">Here You Can Update Your Public Profile Here</h2>
+    <div class="header">
 
-  <div class="panel-body">
-    <%= form_for @company do |f| %>
+        <h2 class="title">Here You Can Update Your Public Profile Here</h2>
 
-      <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :name %>
+    </div>
+    <div class="sep"></div>
+      <div class="inputs">
+          <div class="panel-body">
+            <%= form_for @company do |f| %>
+
+              <div class="field">
+                <%= f.label :name %><br />
+                <%= f.text_field :name %>
+              </div>
+
+               <div class="field">
+                 <%= f.label :brief_description_of_your_company %> <br />
+                 <%= f.text_field :brief %>
+              </div>
+
+              <div class="field">
+                 <%= f.label :description_of_your_product %> <br />
+                 <%= f.text_field :product %>
+              </div>
+
+              <div class="field">
+                <%= f.label :full_description %> <br />
+                <%= f.text_area :description, :class => "textforms" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :funding %> <br />
+                <%= f.text_area :funding, :class => "textforms" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :link_to_your_company_website %> <br />
+                <%= f.text_field :website %>
+              </div>
+
+              <div class="field">
+                 <%= f.label :logo %> <br />
+                 <%= f.file_field :avatar %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Update", :class => "submit" %>
+              </div>
+            <% end %>     
+          </div>
       </div>
-
-       <div class="field">
-         <%= f.label :brief_description_of_your_company %> <br />
-         <%= f.text_field :brief %>
-      </div>
-
-      <div class="field">
-         <%= f.label :description_of_your_product %> <br />
-         <%= f.text_field :product %>
-      </div>
-
-      <div class="field">
-        <%= f.label :full_description %> <br />
-        <%= f.text_area :description %>
-      </div>
-
-      <div class="field">
-        <%= f.label :funding %> <br />
-        <%= f.text_area :funding %>
-      </div>
-
-      <div class="field">
-        <%= f.label :link_to_your_company_website %> <br />
-        <%= f.text_area :website %>
-      </div>
-
-      <div class="field">
-         <%= f.label :logo %> <br />
-         <%= f.file_field :avatar %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Update" %>
-      </div>
-    <% end %>
-  </div>
-</div>
+    </div>
 
